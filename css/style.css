@@ -1,3 +1,36 @@
+* {
+  -webkit-transition: 400ms;
+  -moz-transition: 400ms;
+  -ms-transition: 400ms;
+  -o-transition: 400ms;
+  transition: 400ms;
+}
+
+body {
+	background-color: #fdfdfd;
+	padding-top: 20px;
+	padding-bottom: 20px
+}
+
 .icons img {
-	
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.icons img:hover {
+	opacity: 1
+}
+
+.game-area {
+	min-height: 200px
+}
+
+.game-area .row .player-move img, .game-area .row .comp-move img {
+	border: 1px solid #aaa;
+	border-radius: 10px;
+	padding: 20px
+}
+
+.result h4 {
+	border-radius: 15px;
 }
