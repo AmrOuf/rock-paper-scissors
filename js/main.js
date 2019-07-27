@@ -1,10 +1,8 @@
-window.onload = function()
-{
-	// var temp = document.querySelectorAll('.game-area .row img');
-	// temp[0].style = "visibility: hidden";
-	// console.log(temp[0]);
-}
+//Global variables
+var playerScore = 0;
+var computerScore = 0;
 
+//On clicking any of the three rock-paper-scissors icons call the function addChoice()
 var rock = document.getElementById("rock");
 rock.addEventListener("click", addChoice);
 
@@ -14,22 +12,20 @@ paper.addEventListener("click", addChoice);
 var scissors = document.getElementById("scissors");
 scissors.addEventListener("click", addChoice);
 
-var playerScore = 0;
-var computerScore = 0;
-
+//On pressing "Restart Game", reload the page to reset everything
 var restartBtn = document.getElementById('restart');
 restartBtn.addEventListener('click', function(){
 	location.reload();
 });
 
-
+//addChoice() specifies the player input and chooses a random input for the computer to compute the result
 function addChoice(e)
 {
-	// console.log(e.target.id);
+	//Add the choosen icon by the player to the player side
 	var playerChoice = document.getElementById("player-move");
-	// console.log(playerChoice);
 	playerChoice.innerHTML = '<img src="imgs/'+e.target.id+'.png" class="img-fluid">';
 
+	//Map each choice to a number between 0 and 2
 	var playerRandom;
 	if (e.target.id === 'rock') {
 		playerRandom = 0;
@@ -41,14 +37,12 @@ function addChoice(e)
 		playerRandom = 2;
 	}
 
-
 	//Computer choice
 	var compChoice = document.getElementById("comp-move");
-	//Return random integer between 0 and 2
+	//Choose random integer between 0 and 2
 	var compRandom = Math.floor(Math.random() * 3); 
-	// console.log(compRandom);
 
-
+	//Add the randomly chosen icon to the computer side
 	if (compRandom === 0) {	
 		compChoice.innerHTML = '<img src="imgs/rock.png" class="img-fluid">';
 	}
@@ -59,17 +53,12 @@ function addChoice(e)
 		compChoice.innerHTML = '<img src="imgs/scissors.png" class="img-fluid">';
 	}
 
-	// console.log('playerRandom: '+playerRandom);
-	// console.log('compRandom: '+compRandom);
-
+	//Call another function to calculate the winner and update the score result on the screen
 	judgement(playerRandom, compRandom);
 }
 
 function judgement(player, computer)
 {
-	// console.log('player: '+player);
-	// console.log('computer: '+computer);
-
 	var result;
 
 	// Player chose Rock!
@@ -103,8 +92,8 @@ function judgement(player, computer)
 	}
 
 
+	//Print the result on the screen
 	var resultText = document.getElementById('result-text');
-
 	if (result === 'Draw')
 		resultText.innerHTML = '<h2 class="text-dark">It\'s a DRAW!</h2>';
 	else if (result === 'Player Wins!') {
@@ -117,8 +106,4 @@ function judgement(player, computer)
 		computerScore++;
 		document.getElementById('computer-result').innerHTML = 'Computer: '+computerScore;
 	}
-
-
-
 }
-
