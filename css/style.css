@@ -26,11 +26,13 @@ body {
 }
 
 .game-area .row .player-move img, .game-area .row .comp-move img {
-	border: 1px solid #aaa;
+/*	border: 1px solid #aaa;*/
 	border-radius: 10px;
-	padding: 20px
+	padding: 20px;
+	/*visibility: hidden;*/
 }
 
-.result h4 {
+
+.result h2 {
 	border-radius: 15px;
 }
